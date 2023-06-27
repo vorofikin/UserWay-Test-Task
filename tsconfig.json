@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "moduleResolution":"Node",
+    "outDir": "dist",
+    "baseUrl": "src",
+
+    "composite": true,
+    "types": [
+      "node",
+      "mongoose"
+    ],
+    "lib": [
+      "es2017"
+    ]
+  },
+  "ts-node": {
+    "esm": true
+  }
+}
