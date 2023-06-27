@@ -11,9 +11,9 @@ $ npm install
 Example:
 
 ```
-DB_NAME="test_task"
-DB_USERSNAME="sa"
-DB_PASSWORD="root"
+DB_NAME=test_task
+DB_USERSNAME=sa
+DB_PASSWORD=root
 DB_HOST=ANDREW-G15
 ```
 
