@@ -1,9 +1,20 @@
-### <b>Andrew Nikiforov</b> Test Task
+## <b>Andrew Nikiforov</b> Test Task
 
 ## Installation
 
 ```
 $ npm install
+```
+
+## Create `.env` file
+
+Example:
+
+```
+DB_NAME="test_task"
+DB_USERSNAME="sa"
+DB_PASSWORD="root"
+DB_HOST=ANDREW-G15
 ```
 
 ## Init DB
@@ -18,17 +29,7 @@ $ npm run init-db
 $ npm run dev
 ```
 
-1. Create `.env` file
-2. Initialize variables like this:
-
-```
-DB_NAME="test_task"
-DB_USERSNAME="sa"
-DB_PASSWORD="root"
-DB_HOST=ANDREW-G15
-```
-
-3. Open <a>web.postman.co/workspace</a>
+### Open <a>web.postman.co/workspace</a>
 
 ## Request examples:
 
