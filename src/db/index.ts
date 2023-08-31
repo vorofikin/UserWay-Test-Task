@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 import * as process from "process";
-import { initTables, syncTables } from "./models/dogs.model";
+import { initTables, syncTables } from "./models/url.model";
 let dbInstance: ConnectionDB;
 
 class ConnectionDB {
@@ -15,9 +15,9 @@ class ConnectionDB {
     private dbHost: string
   ) {
     this._db = new Sequelize(this.dbName, this.dbUsername, this.dbPassword, {
-      dialect: "mssql",
+      dialect: "mysql",
       host: this.dbHost,
-      port: 54832,
+      port: 3306,
       pool: {
         max: 10,
         min: 0,

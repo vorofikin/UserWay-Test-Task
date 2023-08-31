@@ -1,7 +1,6 @@
 import { Router } from "express";
-import pingRouter from "./ping";
-import dogRouter from "./dogs/index";
+import urlRouter from "./url/index";
 const router: Router = Router();
-router.use("/ping", pingRouter);
-router.use("/dogs", dogRouter);
+router.use("/url", urlRouter);
+
 export default router;

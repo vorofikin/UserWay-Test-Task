@@ -7,10 +7,12 @@ interface IConfigs {
   readonly dbUsername: string;
   readonly dbPassword: string;
   readonly dbHost: string;
+  readonly redisHost: string;
 }
 export default {
   dbName: process.env.DB_NAME,
   dbPassword: process.env.DB_PASSWORD,
   dbUsername: process.env.DB_USERSNAME,
   dbHost: process.env.DB_HOST,
+  redisHost: process.env.REDIS_HOST,
 } as IConfigs;

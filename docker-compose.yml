@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  node_db:
+    container_name: db
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    expose:
+      - 3306
+    environment:
+      MYSQL_DATABASE: test_task
+      MYSQL_ROOT_PASSWORD: root  # Set the root password here
+      SERVICE_NAME: db
+      MYSQL_HOST: localhost
+      REDIS_HOST: redis
+    networks:
+      - internalnet
+
+  node_app:
+    container_name: node_app
+    build: .
+    image: userway_test-task
+    ports:
+      - "5000:5000"
+    expose:
+      - 5000
+    environment:
+      DB_NAME: test_task
+      DB_USERSNAME: root
+      DB_PASSWORD: root
+      DB_HOST: node_db
+    networks:
+      - internalnet
+    depends_on:
+      - node_db
+      - redis
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - internalnet
+    environment:
+      REDIS_HOST: redis
+
+volumes:
+  node_db_data: {}
+
+networks:
+  internalnet:
+    driver: bridge

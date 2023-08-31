@@ -12,82 +12,44 @@ Example:
 
 ```
 DB_NAME=test_task
-DB_USERSNAME=sa
+DB_USERSNAME=root
 DB_PASSWORD=root
-DB_HOST=ANDREW-G15
+DB_HOST=localhost
+REDIS_HOST=redis
 ```
 
-## Init DB
-
-```
-$ npm run init-db
-```
-
-## Running the app
-
-```
-$ npm run dev
-```
 
 ### Open <a>web.postman.co/workspace</a>
 
 ## Request examples:
 
-### Ping
-
-```
-Method: GET
-Path: localhost:5000/ping
-
-Response body: {
-    "message": "Dogshouseservice.Version1.0.1"
-}
-```
-
-### Dogs
-
-```
-Method: GET
-Path: localhost:5000/dogs
-
-Response body: {
-    "totalPages": 1,
-    "currentPage": [
-        {
-            "id": 1,
-            "name": "Neo",
-            "color": "red&amber",
-            "tail_length": 22,
-            "weight": 32
-        },
-    ]
-}
-
-Query params: attribute, order, pageNumber, limit
-Path examples: 
-    localhost:5000/dogs?attribute=weight&order=asc
-    localhost:5000/dogs?pageNumber=1&attribute=weight&limit=1&order=asc
-    localhost:5000/dogs?pageNumber=1&attribute=weight&&order=asc
-```
-
-### Create Dog
+### Create Short Url
 
 ```
 Method: POST
-Path: localhost:5000/dogs
+Path: localhost:5000/url
 
 Request body: {
-    "name": "Jessy",
-    "color": "black",
-    "tail_length": 22,
-    "weight": 36
+    "url": "https://userway.org/",
 }
+Response: {
+    "id": null,
+    "originalUrl": "https://userway.org/",
+    "shortUrl": "pxtepMpE"
+}
+```
 
-Response body: {
-    "id": 2,
-    "name": "Jessy",
-    "color": "black",
-    "tail_length": 22,
-    "weight": 36
+```
+Request body: {
+    "shortUrl": "pxtepMpE",
 }
+Resoinse: "https://userway.org/"
+```
+
+
+```
+Method: GET
+Path: localhost:5000/url/pxtepMpE
+
+Redirect to https://userway.org/
 ```
